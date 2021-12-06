@@ -17,7 +17,7 @@ function getUserData() {
     }
 }
 function parseInput(){
-    ids = document.getElementById("IDs").value ;
+    ids = document.getElementById("IDs").value.split(","); ;
     return ids ;
 }
 
