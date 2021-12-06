@@ -50,5 +50,6 @@ function parseFetchedData(data) {
 }
 
 function renderChart(chartName) {
+    
 
 }
