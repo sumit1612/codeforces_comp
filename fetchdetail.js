@@ -2,6 +2,7 @@ function getUserData() {
     handels = parseInput() ;
     var url = "https://codeforces.com/api/user.info?handles=" + handels.join(";") ;
     var xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
     xhr.open("GET", url, true);
     xhr.send();
 
