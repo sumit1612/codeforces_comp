@@ -1,9 +1,25 @@
-function getUserData(handle) {
+function getUserData() {
+    handels = parseInput() ;
+    var url = "https://codeforces.com/api/user.info?handles=" + handels.join(";") ;
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
+    xhr.open("GET", url, true);
+    xhr.send();
 
+    xhr.onload = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            parseFetchedData(xhr.responseText);
+        } 
+    }
+
+    xhr.onerror = function() {
+        var doc = document.getElementById("append_table");
+        doc.innerHTML = '<div class="alert alert-danger" role="alert">Something went wrong! Check the handle(s) provided if they are correct</div>'
+    }
 }
-
-function parseInput(input) {
-
+function parseInput(){
+    ids = document.getElementById("IDs").value.split(","); ;
+    return ids ;
 }
 
 function parseFetchedData(data) {
@@ -35,6 +51,7 @@ function parseFetchedData(data) {
 }
 
 function renderChart(chartName) {
+    
 
 }
 
